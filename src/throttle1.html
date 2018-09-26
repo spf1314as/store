@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function throttle(fun, delay) {
+        var last, deferTimer;
+        return function (args) {
+            var that = this,
+                _args = arguments,
+                now = +new Date();
+            if (last && now < last + delay) {
+                clearTimeout(deferTimer)
+                deferTimer = setTimeout(function () {
+                    console.log('timer')
+                    last = now;
+                    fun.apply(that, _args)
+                }, delay)
+            }else {
+                last = now;
+                fun.apply(that,_args)
+            }
+        }
+    }
+    function ajax(content) {
+        console.log('ajax request ' + new Date().getSeconds())
+    }
+
+    var throttleAjax = throttle(ajax, 2000);
+    setInterval(function () {
+        throttleAjax()
+
+    },1000)
+
+</script>
+</body>
+</html>
