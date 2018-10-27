@@ -53,7 +53,7 @@ function TestPromise(fn){
     function execute() {
         setTimeout(function () {
             callbacks.forEach((cb) => {
-                cb(value)
+                handle(cb)
             })
         },0)
 
