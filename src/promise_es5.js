@@ -59,7 +59,7 @@ function TestPromise(fn){
 
     }
     this.catch = function (reject) {
-        return this.then(null,reject)
+        return this.then.call(this,null,reject)
 
     }
     this.all = function(...res){
@@ -76,7 +76,7 @@ function TestPromise(fn){
             for(let key of res){
                 key.catch( err => {
                     value = err
-                    return this.then(null,resject)
+                    return this.then.call(this,null,resject)
                 })
             }
         }

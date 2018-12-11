@@ -1,4 +1,4 @@
-function buble(arr) {
+function bubble(arr) {
     var len = arr.length;
     for(var i =0;i<len-1;i++){
         for(var j =0;j<len-i-1;j++){
@@ -42,6 +42,13 @@ function select(arr) {
         arr[i] = arr[minIndex];
         arr[minIndex] = temp
     }
+    return arr
+}
+
+// sort method
+
+function sort (arr){
+    arr.sort((a,b) => a-b)
     return arr
 }
 
