@@ -46,6 +46,18 @@ function indexof (arr) {
 function includes(arr){
     return {};
 }
+
+function map (arr){
+    let map1 = new Map();
+    for(let value of arr){
+        if(!map1.has(value)){
+            map1.set(value,true)
+        }
+    }
+    return [...map1.keys()]
+}
+
+
 // function set(arr) {
 //     var set = new Set(...arr);
 //     return Array.from(set)
