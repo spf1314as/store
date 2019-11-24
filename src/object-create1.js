@@ -17,7 +17,7 @@ function create(obj){
 function createFn(obj){
     function fn() {
     }
-    fn.__proto__ = obj;
+    fn.__proto__ = obj; // 错误   fn.prototype = obj
     return new fn()
 }
 function P(name) {
