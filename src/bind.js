@@ -18,3 +18,19 @@ function game(name) {
 var obj = {game:'xiaomi'};
 var fn = game.bind2(obj,'huyu');
 var test = new fn()
+
+Function.prototype.bindEs5 = function(oThis){
+  var aArgs = [].slice.call(arguments, 1)
+  var fToBind = this
+  var fNOP = function() {}
+  var fBound = function(){
+    return fToBind.apply(
+      (this  instanceof fNOP && oThis ? this : oThis),
+      aArgs.concat([].slice.call(arguments))
+    )
+  }
+  fNOP.prototype = this.prototype //Object.create(fToBind.prototype)
+
+  fBound.prototype = new fNOP()
+  return fBound
+}
