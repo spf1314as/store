@@ -1,3 +1,4 @@
+// 将数组乱序排列
 function random(arr) {
     var newArr = [];
     var len = arr.length;

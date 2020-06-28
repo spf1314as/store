@@ -8,7 +8,7 @@ Function.prototype.softBind = function (obj) {
         )
     }
     bind.prototype = Object.create(bind.prototype)
-    bind.prototype.constructon = bind
+    bind.prototype.constructor = bind
     return bind
 }
 

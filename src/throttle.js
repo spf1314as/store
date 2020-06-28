@@ -8,7 +8,7 @@ function throttle(fn,delay=200) {
     return function () {
         var that = this,
             argus= arguments,
-             cur = Date.now();
+            cur = Date.now();
         if(timer){
             clearTimeout(timer);
         }
@@ -30,7 +30,7 @@ function test(name) {
 var game = throttle(test,200);
 game('xiaomi');
 setInterval(game('xiaomi'),100)
-function buble (fn,delay) {
+function debounce (fn,delay) {
     delay = delay || 100 ;
     var timer = null,
         first = true;
@@ -41,7 +41,7 @@ function buble (fn,delay) {
             fn.apply(that,args)
             first = false
         }else{
-            setTimeout( function () {
+           timer = setTimeout( function () {
                 fn.apply(that,args)
             },delay)
         }

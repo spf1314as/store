@@ -22,7 +22,7 @@ let Router = {
         return path.toString().replace(/\/$/, '').replace(/^\//, '');
         },
     add: function (re, handler) {
-        if (typeof re == 'function') {
+        if (typeof re === 'function') {
             handler = re; re = '';
         }
         this.routes.push({ re: re, handler: handler });
@@ -56,7 +56,8 @@ let Router = {
         let current = self.getFragment();
         let fn = function () {
             if (current !== self.getFragment()) {
-                current = self.getFragment(); self.check(current);
+                current = self.getFragment(); 
+                self.check(current);
             }
         }
         clearInterval(this.interval);
